@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<html>
+
+    <head>
+        <title>Mystery Word Game</title>
+    </head>
+    
+
+    <body>
+        
+
+        <script type="text/javascript">  // entering javascript  //
+           
+
+
+        
+            function gameSetup() {                     // setup the game for play 'Q' means Quit the game //
+                if (inputChar = 'Q'){
+                alert('You have requested to quit the game');
+                quit = true;
+             
+            }
+            else {
+                quit = false;   
+                                //-- count of number of wins //
+                let wins=0;
+                               // count number of losses //
+                let losses = 0;
+                               // array of easy words //
+                const wordsEasy=['orange', 'yellow', 'red', 'blue', 'green']  
+                                // limit to number of guesses for wordsEasy //
+                let limitEasyGuesses=30;
+                                // array of difficult words //
+                const wordsDifficult=['doodle','swipe', 'color', 'swing', 'bling', 'swizzle', 'sizzle']
+                                // limit to number of guesses for wordsDifficult //
+                let limitDifficultGuesses=40;
+                                // array to hold the computer's guess, ie. word
+                const wordArray="            "
+                                  //users max number of guesses //           ";
+                let maxGuesses=0; 
+                                  //users actual number of guesses //           ";
+                let guesses=0;
+                const promptArray='                      '; 
+
+            }
+
+            }     
+
+
+         //-- Not neededd?  input type="userInput" id="keyPressed" onkeyup="userInput()">  //
+            function promptUser(){            
+                                // display user instructions and request user input //
+                let inputChar = prompt(`Guess and enter a lower case alphabetic letter in the mystery word. 
+                                    Enter upper case 'Q' to quit the game.`);
+           
+                if (inputChar === 'Q') {
+                     quit = true;
+                }
+                else (quit=false);
+                                
+            }
+
+
+            function revealGuess(wordArray, promptArray, inputChar) {
+                                    // reveal to the user the status of their guess //
+                let char = inputChar.toLowerCase;
+                let i = 0;
+                let letterFoundInGuess=false;
+               
+                guesses=+1;
+                
+                                      // check word string array for the guessed character //
+                    console.log("find index" + wordArray + "     i:" + i + "     inputChar:" + inputChar) ; 
+             
+                // for (i = 0; i < wordArray.length; i++) { replace with indexOf- while finding chars
+                    for (i != -1;) {
+                        i= (wordArray.indexOf(inputChar);
+                       
+                                      //  store in the input prompt array //       
+                            console.log("find index" + wordArray + "     i:" + i + "     inputChar:" + inputChar) ;                              
+                    // if  (i != -1){                    // if character found   
+                         if (letterFoundInGuess = false) {
+                            letterFoundInGuess= true;     
+                            promptArray[i]=inputChar;  }
+                        
+                 
+                    console.log("find index" + wordArray + "     i:" + i + "     inputChar:" + inputChar) ;         
+                                           
+                            
+                    }
+                                    // save inputChar into the list of already guessed characters  //
+            alreadyGuessedArray.push(inputChar);            
+            // display array;                   
+
+                 }
+            
+
+            function scoreGame() {
+                                // score the game, update statistics, ready for next user input //
+                if (promptArray=wordArray)   {             
+                wins++;
+                display('You Win!' + sound);
+                remainGuesses = maxGuesses- guesses;
+                resetWord;
+                }
+            
+                else if (guesses < maxGuesses) {
+                    display ('Guess again!');
+                    guesses++;
+                    remainGuesses = maxGuesses- guesses;
+                 }   
+                else     {                
+                        display ('Letter not found. '+sound) 
+                        remainGuesses = maxGuesses- guesses;
+                        resetWord();
+                 }
+            }
+
+            function getTheMysteryWord(words) {             // determine the mystery word
+                 
+                 const n = (words.length); 
+                        // get a random number
+                 let mysterWord="  ";
+                 let randomNumber=Math.floor(Math.random() * n);
+                 mysteryword=words[randomNumber];
+                 console.log("inside getTheMysteryWord    " + words +     "mysteryWord" +"   mysteryWord");
+            return mysteryWord;            
+        }     
+
+
+            function resetWord(gameLevel) {
+                            // reset the input prompt from the user, guesses, wins and losses //            
+                inputChar = ' ';
+                guesses=0;
+                wins=0;
+                losses=0;
+                            // assign a computer guessed word  //
+
+                if (gameLevel='easy') {
+                    getTheMyasteryWord(easyWords, word);
+                }
+                else {  
+                    getTheMyasteryWord(difficultWords, word);
+                    }
+                  
+                return;  
+            }       
+
+            
+                let quit = true;   
+                                //-- count of number of wins //
+                let wins=0;
+                               // count number of losses //
+                let losses = 0;
+                             // count number of guesses left //
+                let remainGuesses = 0;
+                               // array of easy words //
+                const wordsEasy=['orange', 'yellow', 'red', 'blue', 'green']  
+                                // limit to number of guesses for wordsEasy //
+                let limitEasyGuesses=30;
+                                // array of difficult words //
+                const wordsDifficult=['doodle','swipe', 'color', 'swing', 'bling', 'swizzle', 'sizzle']
+                                // limit to number of guesses for wordsDifficult //
+                let limitDifficultGuesses=40;
+                                // array to hold the computer's word, ie. word
+                const wordArray='xxxxx            ';
+                const promptArray='          ';
+                                  //users number of guesses //           ";
+                let maxGuesses=0; 
+                                    // character user inputs at prompt
+                let inputChar='Q';
+
+                
+                
+                
+
+                  console.log("quit=" + quit + "wordArray="+ wordArray + "input char=" + inputChar);
+            
+        
+
+        
+   
+        promptUser();
+        console.log("about to setup" +"   quit=" + quit + "     wordArray="+ wordArray + "     input char=" + inputChar);
+                        // setup for the game  //
+        gameSetup();
+                        // engage the user asking for input//
+                        console.log("about to prompt" + "     quit=" + quit + "     wordArray="+ wordArray + "     input char=" + inputChar);
+                        // stop playing when quit is true //
+        while(quit = true) {
+                        // reveal the guess results to the user //
+            revealGuess(wordArray, promptArray, inputChar);
+                        // score and retain statistics //
+                        console.log("about to score" + "quit=" + quit + "wordArray="+ wordArray + "input char=" + inputChar);
+            scoreGame();
+                        // reset the word for next play //
+            resetWord(gameLevel);
+        }
+       
+        console.log("Thank you for playing Mystery Word Game");
+        </script>      
+    </body>
+</html>
